@@ -10,6 +10,17 @@ plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
 }
+ext {
+	runtimeClassPathVar = "${runtimeClassPath}"
+}
+sourceSets {
+	main {
+		java {
+			srcDir ".gen_src"
+		}
+	}
+	
+}
 
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
@@ -21,7 +32,8 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     
-    compile fileTree(dir: "${runtimeClassPath}", include: '*.jar')
+    compile fileTree(dir: "${runtimeClassPathVar}", include: '*.jar')
+    //compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 // In this section you declare where to find the dependencies of your project
@@ -31,11 +43,17 @@ repositories {
     jcenter()
     
     flatDir {
-    	dirs "${runtimeClassPath}"
+    	dirs "${runtimeClassPathVar}"
     }
+    /*flatDir {
+    	dirs 'libs'
+    }*/
 }
 
 task temp() {
 	println 'temp1'
+	println "${runtimeClassPath}"
 	println '${runtimeClassPath}'
+	println "${runtimeClassPathVar}"
+	println '${runtimeClassPathVar}'
 }
