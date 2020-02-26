@@ -36,5 +36,6 @@ repositories {
 }
 
 task temp() {
-	println 'temp'
+	println 'temp1'
+	println '${runtimeClassPath}'
 }
