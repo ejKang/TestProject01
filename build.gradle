@@ -20,6 +20,8 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+    
+    compile fileTree(dir: "${runtimeClassPath}", include: '*.jar')
 }
 
 // In this section you declare where to find the dependencies of your project
@@ -27,4 +29,12 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    
+    flatDir {
+    	dirs "${runtimeClassPath}"
+    }
+}
+
+task temp() {
+	println 'temp'
 }
