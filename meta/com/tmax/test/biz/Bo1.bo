@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns12:bizObject xmlns:ns10="http://www.tmax.co.kr/proobject/dataobjectfactory" xmlns:ns11="http://www.tmax.co.kr/proobject/queryobject" xmlns:ns12="http://www.tmax.co.kr/proobject/bizobject" xmlns:ns13="http://www.tmax.co.kr/proobject/serviceobject" xmlns:ns14="http://www.tmax.co.kr/proobject/dataobject" xmlns:ns15="http://www.tmax.co.kr/proobject/taskobject" xmlns:ns16="http://www.tmax.co.kr/proobject/jobobject" xmlns:ns17="http://www.tmax.co.kr/proobject/servicegroup" xmlns:ns18="http://www.tmax.co.kr/proobject/aspectj" xmlns:ns19="http://www.tmax.co.kr/proobject/mapping" xmlns:ns2="http://www.tmax.co.kr/proobject/message" xmlns:ns20="http://www.tmax.co.kr/proobject/application/runtime" xmlns:ns21="http://www.tmaxsoft.co.kr/proobject/testsuite" xmlns:ns22="http://www.example.org/externalObjectConfig" xmlns:ns23="http://www.tmax.co.kr/proobject/restriction_codes" xmlns:ns24="http://www.tmax.co.kr/proobject/application" xmlns:ns25="http://www.tmax.co.kr/proobject/contents" xmlns:ns26="http://www.example.org/testData" xmlns:ns27="http://www.tmaxsoft.co.kr/proobject/testresult" xmlns:ns28="http://www.tmax.co.kr/proobject/siteConfig" xmlns:ns29="http://www.tmax.co.kr/proobject/serverConfig" xmlns:ns3="http://www.tmax.co.kr/proobject/testcase" xmlns:ns30="http://www.tmaxsoft.co.kr/proobject/testOperation" xmlns:ns31="http://www.tmax.co.kr/proobject/probuilder_config" xmlns:ns32="http://www.tmax.co.kr/proobject/property" xmlns:ns33="http://www.tmax.co.kr/proobject/serviceGroup" xmlns:ns4="http://www.tmax.co.kr/proobject/dto" xmlns:ns5="http://www.tmax.co.kr/proobject/resource" xmlns:ns6="http://www.tmax.co.kr/proobject/dto/validator" xmlns:ns7="http://www.tmax.co.kr/proobject/serviceobject-automatic" xmlns:ns8="http://www.tmax.co.kr/proobject/sourcecode" xmlns:ns9="http://www.tmax.co.kr/proobject/flow" created="2019-05-07 12:06:28.731" creator="admin" description="Bo1" lastUpdated="2019-08-26 11:56:16" logicalName="Bo1" modifier="admin" owner="admin" physicalName="Bo1" resourceId="0000f55054c7000001056400f3a02c0b" resourcePackage="com.tmax.test.biz" resourcePath="com/tmax/test/biz" resourceType="BIZ_OBJECT" revision="12" status="DEV" identifier="general">
+  <ns12:bizMethod comments="asdf" displayName="bb" identifier="abstract" methodName="bb" modifier="public">
+    <ns9:flowModule>
+      <ns9:entryModule>
+        <ns9:name>bb</ns9:name>
+        <ns9:nextEntries>
+          <ns9:id>1</ns9:id>
+          <ns9:id>0</ns9:id>
+        </ns9:nextEntries>
+      </ns9:entryModule>
+      <ns9:innerModules/>
+      <ns9:xorModules/>
+      <ns9:virtualModules>
+        <ns9:virtualModule nodeId="0">
+          <ns9:name>버추얼 모듈</ns9:name>
+          <ns9:nextEntries/>
+          <ns9:code>	        	 logger.info(&quot;Bo1!!&quot;);&#xD;
+	        	 System.out.println(&quot;Bo1Q&quot;);</ns9:code>
+        </ns9:virtualModule>
+      </ns9:virtualModules>
+      <ns9:loopModules/>
+      <ns9:bizMethodCalls/>
+      <ns9:serviceCalls/>
+      <ns9:assignModules/>
+      <ns9:dataObjectCalls/>
+      <ns9:replyCalls/>
+      <ns9:ddlModules>
+        <ns9:ddlModule nodeId="1">
+          <ns9:name>DDL 모듈</ns9:name>
+          <ns9:comments>sdf</ns9:comments>
+          <ns9:nextEntries/>
+          <ns9:ddlStatement>select * from dev_rsc</ns9:ddlStatement>
+          <ns9:datasource>newdev1</ns9:datasource>
+        </ns9:ddlModule>
+      </ns9:ddlModules>
+    </ns9:flowModule>
+    <ns12:arguments/>
+    <ns12:returnType kind="PRIMITIVE">
+      <ns9:primitive>void</ns9:primitive>
+    </ns12:returnType>
+    <ns12:classInfo className="Bo1" classPackageName="com/tmax/test/biz"/>
+    <ns12:annotations/>
+  </ns12:bizMethod>
+  <ns12:member>
+    <ns12:variable getter="false" inject="NONE" kind="DTO" lazy="false" modifier="public" name="var1" scope="member" setter="false">
+      <ns9:do logicalName="Do1" physicalName="Do1" resourcePath="com/tmax/test/data"/>
+    </ns12:variable>
+    <ns12:variable getter="false" inject="NONE" kind="DTO" lazy="false" modifier="public" name="var2" scope="member" setter="false">
+      <ns9:do logicalName="Do10" physicalName="Do10" resourcePath="com/app/biz"/>
+    </ns12:variable>
+    <ns12:variable getter="false" inject="NONE" kind="OBJECT" lazy="false" modifier="public" name="var3" scope="member" setter="false">
+      <ns9:userDefined>com.app.biz.tttt</ns9:userDefined>
+    </ns12:variable>
+  </ns12:member>
+  <ns12:interfaces/>
+  <ns12:wholeImport>
+    <ns12:importType>com.tmax.proobject.core.BizObject</ns12:importType>
+    <ns12:importType>com.tmax.proobject.model.business.BusinessObject</ns12:importType>
+    <ns12:importType>com.tmax.proobject.engine.servicemanager.*</ns12:importType>
+    <ns12:importType>com.tmax.proobject.logger.ProObjectLogger</ns12:importType>
+    <ns12:importType>com.tmax.proobject.logger.application.ServiceLogger</ns12:importType>
+    <ns12:importType>com.tmax.proobject.model.dto.*</ns12:importType>
+    <ns12:importType>java.math.BigDecimal</ns12:importType>
+    <ns12:importType>java.util.List</ns12:importType>
+    <ns12:importType>javax.inject.Inject</ns12:importType>
+    <ns12:importType>com.tmax.proobject.core.DataSource</ns12:importType>
+    <ns12:importType>com.tmax.proobject.engine.waitobject.WaitObject</ns12:importType>
+    <ns12:importType>java.util.ArrayList</ns12:importType>
+    <ns12:importType>java.util.logging.Level</ns12:importType>
+    <ns12:importType>java.io.File</ns12:importType>
+    <ns12:importType>com.tmax.proobject.model.transaction.TransactionType</ns12:importType>
+  </ns12:wholeImport>
+  <ns12:typeParameters/>
+</ns12:bizObject>

@@ -1,0 +1,11 @@
+<dataobjectfactory:dataObjectfactory
+    xmlns:dataobjectfactory="http://www.tmax.co.kr/proobject/dataobjectfactory"
+    logicalName="DofTestA"
+    physicalName="DofTestA"
+    resourceId="urn:proobject:com.tmax.test.dof:DofTestA"
+    resourcePackage="com.tmax.test.dof"
+    resourcePath="com/tmax/test/dof"
+    resourceType="DATA_OBJECT_FACTORY"
+    factoryType="DBIO">
+  <dataobjectfactory:dbioAttribute/>
+</dataobjectfactory:dataObjectfactory>

@@ -1,0 +1,158 @@
+<dataobjectfactory:dataObjectfactory
+    xmlns:dataobjectfactory="http://www.tmax.co.kr/proobject/dataobjectfactory"
+    logicalName="EncriptKeyDof"
+    physicalName="EncriptKeyDof"
+    resourceId="urn:proobject:com.tmax.proobject.devserver.dof.util:EncriptKeyDof"
+    resourcePackage="com.tmax.proobject.devserver.dof.util"
+    resourcePath="com/tmax/proobject/devserver/dof/util"
+    resourceType="DATA_OBJECT_FACTORY"
+    factoryType="DBIO">
+  <dataobjectfactory:dataObject
+      logicalName="FieldEncryptionKeyServiceDTO"
+      physicalName="FieldEncryptionKeyServiceDTO"
+      resourcePath="com/tmax/proobject/devserver/dto">
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="true"
+        physicalName="resource_id"
+        schema=""
+        tableName=""/>
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="true"
+        physicalName="group_id"
+        schema=""
+        tableName=""/>
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="false"
+        physicalName="group_name"
+        schema=""
+        tableName=""/>
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="true"
+        physicalName="physical_name"
+        schema=""
+        tableName=""/>
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="true"
+        physicalName="logical_name"
+        schema=""
+        tableName=""/>
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="true"
+        physicalName="resource_type"
+        schema=""
+        tableName=""/>
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="true"
+        physicalName="create_time"
+        schema=""
+        tableName=""/>
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="true"
+        physicalName="algorithm_type"
+        schema=""
+        tableName=""/>
+    <dataobjectfactory:objectFields
+        columnName=""
+        javaType="String"
+        keyColumn="false"
+        length="128"
+        nullable="true"
+        physicalName="creator"
+        schema=""
+        tableName=""/>
+  </dataobjectfactory:dataObject>
+  <dataobjectfactory:dbioAttribute>
+    <dataobjectfactory:tables
+        name="DEV_ENCRIPT_KEY"/>
+    <dataobjectfactory:fullstatements
+        alias="INSERT"
+        sqlType="INSERT">
+      <dataobjectfactory:statement>INSERT INTO DEV_ENCRIPT_KEY
+(
+resource_id,
+group_id,
+physical_name,
+logical_name,
+resource_type,
+create_time,
+algorithm_type,
+creator
+)
+VALUES
+(
+:resource_id,
+:group_id,
+:physical_name,
+:logical_name,
+:resource_type,
+:create_time,
+:algorithm_type,
+:creator
+)</dataobjectfactory:statement>
+      <dataobjectfactory:parameter
+          javaType="String"
+          physicalName="resource_id"
+          updatable="true"/>
+      <dataobjectfactory:parameter
+          javaType="String"
+          physicalName="group_id"
+          updatable="true"/>
+      <dataobjectfactory:parameter
+          javaType="String"
+          physicalName="physical_name"
+          updatable="true"/>
+      <dataobjectfactory:parameter
+          javaType="String"
+          physicalName="logical_name"
+          updatable="true"/>
+      <dataobjectfactory:parameter
+          javaType="String"
+          physicalName="resource_type"
+          updatable="true"/>
+      <dataobjectfactory:parameter
+          javaType="String"
+          physicalName="create_time"
+          updatable="true"/>
+      <dataobjectfactory:parameter
+          javaType="String"
+          physicalName="algorithm_type"
+          updatable="true"/>
+      <dataobjectfactory:parameter
+          javaType="String"
+          physicalName="creator"
+          updatable="true"/>
+    </dataobjectfactory:fullstatements>
+  </dataobjectfactory:dbioAttribute>
+</dataobjectfactory:dataObjectfactory>

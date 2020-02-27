@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns16:jobObject xmlns:ns2="http://www.tmax.co.kr/proobject/application/runtime" xmlns:ns3="http://www.tmax.co.kr/proobject/dataobject" xmlns:ns4="http://www.tmax.co.kr/proobject/resource" xmlns:ns5="http://www.tmax.co.kr/proobject/dto" xmlns:ns6="http://www.tmax.co.kr/proobject/message" xmlns:ns7="http://www.tmax.co.kr/proobject/dto/validator" xmlns:ns8="http://www.tmax.co.kr/proobject/mapping" xmlns:ns9="http://www.tmax.co.kr/proobject/flow" xmlns:ns10="http://www.tmax.co.kr/proobject/aspectj" xmlns:ns11="http://www.tmax.co.kr/proobject/bizobject" xmlns:ns12="http://www.tmax.co.kr/proobject/dataobjectfactory" xmlns:ns13="http://www.tmax.co.kr/proobject/queryobject" xmlns:ns14="http://www.tmax.co.kr/proobject/serviceobject" xmlns:ns15="http://www.tmax.co.kr/proobject/taskobject" xmlns:ns16="http://www.tmax.co.kr/proobject/jobobject" xmlns:ns17="http://www.tmax.co.kr/proobject/serviceobject-automatic" xmlns:ns18="http://www.tmax.co.kr/proobject/sourcecode" xmlns:ns19="http://www.tmax.co.kr/proobject/servicegroup" xmlns:ns20="http://www.tmax.co.kr/proobject/testcase" xmlns:ns21="http://www.example.org/externalObjectConfig" xmlns:ns22="http://www.tmaxsoft.co.kr/proobject/testsuite" xmlns:ns23="http://www.tmax.co.kr/proobject/restriction_codes" xmlns:ns24="http://www.tmax.co.kr/proobject/application" xmlns:ns25="http://www.tmax.co.kr/proobject/contents" xmlns:ns26="http://www.tmax.co.kr/proobject/probuilder_config" xmlns:ns27="http://www.tmax.co.kr/proobject/property" xmlns:ns28="http://www.tmax.co.kr/proobject/serverConfig" xmlns:ns29="http://www.tmax.co.kr/proobject/siteConfig" xmlns:ns30="http://www.example.org/testData" xmlns:ns31="http://www.tmaxsoft.co.kr/proobject/testOperation" xmlns:ns32="http://www.tmaxsoft.co.kr/proobject/testresult" xmlns:ns33="http://www.tmax.co.kr/proobject/serviceGroup" resourceId="0000f55054c7000001236c00526a1a21" logicalName="Jo1" physicalName="Jo1" resourceType="JOB_OBJECT" ApplicationName="dbApp1" serviceGroupName="dbSg1" resourcePackage="com.tmax.test.biz" creator="admin" owner="admin" revision="2" description="Jo1" resourcePath="com/tmax/test/biz" modifier="admin" created="2019-05-07 12:18:03.176" lastUpdated="2019-05-07 12:18:34">
+    <ns16:taskList>
+        <ns16:block xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns15:conditionType" name="Cond_0" id="Cond_0" blockType="CONDITION" result="0">
+            <ns15:nextEntries/>
+            <ns15:code>true</ns15:code>
+        </ns16:block>
+    </ns16:taskList>
+    <ns16:nextEntry>
+        <ns9:id>Cond_0</ns9:id>
+    </ns16:nextEntry>
+    <ns16:parameter>com.tmax.test.data.Do1</ns16:parameter>
+</ns16:jobObject>

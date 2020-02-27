@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<so:serviceObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:do="http://www.tmax.co.kr/proobject/dataobject" xmlns:flow="http://www.tmax.co.kr/proobject/flow" xmlns:so="http://www.tmax.co.kr/proobject/serviceobject" description="Sotest1" logicalName="Sotest1" physicalName="Sotest1" resourcePackage="com.tmax.prodesign.test.so" resourcePath="com/tmax/prodesign/test/so" resourceType="SERVICE_OBJECT" identifier="general" name="Sotest1">
+  <so:inputDo xsi:type="do:dataObjectType" physicalName="DDD" resourceId="urn:proobject:com.tmax.prodesign.test.so:Sotest1" resourcePackage="tmax.test.dto" resourcePath="tmax/test/dto" resourceType="DATA_OBJECT" revision="0" serviceGroupName="dbSg1"/>
+  <so:outputDo xsi:type="do:dataObjectType" physicalName="DDD" resourceId="urn:proobject:com.tmax.prodesign.test.so:Sotest1" resourcePackage="tmax.test.dto" resourcePath="tmax/test/dto" resourceType="DATA_OBJECT" revision="0" serviceGroupName="dbSg1"/>
+  <so:member/>
+  <so:wholeImport>
+    <so:importType>com.tmax.proobject.core.ServiceObject</so:importType>
+    <so:importType>com.tmax.proobject.model.business.BusinessObject</so:importType>
+    <so:importType>com.tmax.proobject.model.dataobject.DataObject</so:importType>
+    <so:importType>com.tmax.proobject.engine.servicemanager.*</so:importType>
+    <so:importType>com.tmax.proobject.logger.ProObjectLogger</so:importType>
+    <so:importType>com.tmax.proobject.logger.application.ServiceLogger</so:importType>
+    <so:importType>com.tmax.proobject.model.dto.*</so:importType>
+    <so:importType>com.tmax.proobject.core.DataSource</so:importType>
+    <so:importType>javax.inject.Inject</so:importType>
+    <so:importType>com.tmax.proobject.engine.waitobject.WaitObject</so:importType>
+    <so:importType>java.math.BigDecimal</so:importType>
+    <so:importType>java.util.List</so:importType>
+    <so:importType>java.util.ArrayList</so:importType>
+    <so:importType>java.util.logging.Level</so:importType>
+    <so:importType>java.io.File</so:importType>
+    <so:importType>com.tmax.proobject.model.transaction.TransactionType</so:importType>
+    <so:importType>com.tmax.proobject.service.RCallReturn</so:importType>
+    <so:importType>com.tmax.proobject.dataobject.util.DataDefinitionExecutor</so:importType>
+    <so:importType>tmax.test.dto.DDD</so:importType>
+  </so:wholeImport>
+  <so:serviceMethod comments="" displayName="service" methodName="service" modifier="public" overrided="true">
+    <flow:flowModule>
+      <flow:entryModule>
+        <flow:name>service</flow:name>
+        <flow:nextEntries>
+          <flow:id>0</flow:id>
+        </flow:nextEntries>
+      </flow:entryModule>
+      <flow:innerModules/>
+      <flow:xorModules/>
+      <flow:virtualModules>
+        <flow:virtualModule nodeId="0">
+          <flow:name>버추얼 모듈</flow:name>
+          <flow:nextEntries/>
+          <flow:code>		 return null;</flow:code>
+        </flow:virtualModule>
+      </flow:virtualModules>
+      <flow:loopModules/>
+      <flow:bizMethodCalls/>
+      <flow:serviceCalls/>
+      <flow:assignModules/>
+      <flow:deferredModules/>
+      <flow:dataObjectCalls/>
+      <flow:replyCalls/>
+    </flow:flowModule>
+    <so:arguments>
+      <flow:argument>
+        <flow:variable kind="DTO" name="arg0">
+          <flow:do physicalName="DDD" resourcePath="tmax/test/dto"/>
+        </flow:variable>
+        <flow:sequence>0</flow:sequence>
+      </flow:argument>
+    </so:arguments>
+    <so:returnType kind="DTO">
+      <flow:do physicalName="DDD" resourcePath="tmax/test/dto"/>
+    </so:returnType>
+    <so:classInfo className="Sotest1" classPackageName="com/tmax/prodesign/test/so"/>
+    <so:exceptions>
+      <so:exception>java.lang.Throwable</so:exception>
+    </so:exceptions>
+    <so:annotations>
+      <so:annotation>Override</so:annotation>
+    </so:annotations>
+  </so:serviceMethod>
+  <so:interfaces/>
+</so:serviceObject>

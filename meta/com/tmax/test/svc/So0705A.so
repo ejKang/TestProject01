@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns15:serviceObject xmlns:ns2="http://www.tmaxsoft.co.kr/proobject/testsuite" xmlns:ns3="http://www.tmax.co.kr/proobject/resource" xmlns:ns4="http://www.tmax.co.kr/proobject/mapping" xmlns:ns5="http://www.tmax.co.kr/proobject/dto" xmlns:ns6="http://www.tmax.co.kr/proobject/message" xmlns:ns7="http://www.tmax.co.kr/proobject/dto/validator" xmlns:ns8="http://www.tmax.co.kr/proobject/testcase" xmlns:ns9="http://www.tmax.co.kr/proobject/serviceobject-automatic" xmlns:ns10="http://www.tmax.co.kr/proobject/sourcecode" xmlns:ns11="http://www.tmax.co.kr/proobject/flow" xmlns:ns12="http://www.tmax.co.kr/proobject/dataobjectfactory" xmlns:ns13="http://www.tmax.co.kr/proobject/queryobject" xmlns:ns14="http://www.tmax.co.kr/proobject/bizobject" xmlns:ns15="http://www.tmax.co.kr/proobject/serviceobject" xmlns:ns16="http://www.tmax.co.kr/proobject/dataobject" xmlns:ns17="http://www.tmax.co.kr/proobject/taskobject" xmlns:ns18="http://www.tmax.co.kr/proobject/jobobject" xmlns:ns19="http://www.tmax.co.kr/proobject/servicegroup" xmlns:ns20="http://www.tmax.co.kr/proobject/aspectj" xmlns:ns21="http://www.tmax.co.kr/proobject/application/runtime" xmlns:ns22="http://www.tmax.co.kr/proobject/restriction_codes" xmlns:ns23="http://www.example.org/externalObjectConfig" xmlns:ns24="http://www.tmax.co.kr/proobject/application" xmlns:ns25="http://www.tmax.co.kr/proobject/contents" xmlns:ns26="http://www.example.org/testData" xmlns:ns27="http://www.tmaxsoft.co.kr/proobject/testresult" xmlns:ns28="http://www.tmax.co.kr/proobject/siteConfig" xmlns:ns29="http://www.tmax.co.kr/proobject/serverConfig" xmlns:ns30="http://www.tmaxsoft.co.kr/proobject/testOperation" xmlns:ns31="http://www.tmax.co.kr/proobject/probuilder_config" xmlns:ns32="http://www.tmax.co.kr/proobject/property" xmlns:ns33="http://www.tmax.co.kr/proobject/serviceGroup" identifier="general" name="So0705A1" resourceId="0000f550961400e6cd467900a2832029" logicalName="So0705A" physicalName="So0705A" resourceType="SERVICE_OBJECT" resourcePackage="com.tmax.test.svc" creator="admin" revision="4" description="So0705A  " resourcePath="com/tmax/test/svc" modifier="admin" created="2019-07-05 12:10:29.915" lastUpdated="2019-08-29 14:08:45">
+    <ns15:inputDo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns16:dataObjectType" resourceId="urn:proobject:com.tmax.test.svc:So0705A" physicalName="DDD2" resourceType="DATA_OBJECT" serviceGroupName="dbSg1" resourcePackage="com.tmax.test.data" revision="0" resourcePath="com/tmax/test/data"/>
+    <ns15:outputDo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns16:dataObjectType" resourceId="urn:proobject:com.tmax.test.svc:So0705A" physicalName="DDD2" resourceType="DATA_OBJECT" serviceGroupName="dbSg1" resourcePackage="com.tmax.test.data" revision="0" resourcePath="com/tmax/test/data"/>
+    <ns15:member/>
+    <ns15:wholeImport>
+        <ns15:importType>com.tmax.proobject.core.ServiceObject</ns15:importType>
+        <ns15:importType>com.tmax.proobject.model.business.BusinessObject</ns15:importType>
+        <ns15:importType>com.tmax.proobject.model.dataobject.DataObject</ns15:importType>
+        <ns15:importType>com.tmax.proobject.engine.servicemanager.*</ns15:importType>
+        <ns15:importType>com.tmax.proobject.logger.ProObjectLogger</ns15:importType>
+        <ns15:importType>com.tmax.proobject.logger.application.ServiceLogger</ns15:importType>
+        <ns15:importType>com.tmax.proobject.model.dto.*</ns15:importType>
+        <ns15:importType>com.tmax.proobject.core.DataSource</ns15:importType>
+        <ns15:importType>javax.inject.Inject</ns15:importType>
+        <ns15:importType>com.tmax.proobject.engine.waitobject.WaitObject</ns15:importType>
+        <ns15:importType>java.math.BigDecimal</ns15:importType>
+        <ns15:importType>java.util.List</ns15:importType>
+        <ns15:importType>java.util.ArrayList</ns15:importType>
+        <ns15:importType>java.util.logging.Level</ns15:importType>
+        <ns15:importType>java.io.File</ns15:importType>
+        <ns15:importType>com.tmax.proobject.model.transaction.TransactionType</ns15:importType>
+        <ns15:importType>com.tmax.proobject.service.RCallReturn</ns15:importType>
+        <ns15:importType>com.tmax.proobject.dataobject.util.DataDefinitionExecutor</ns15:importType>
+        <ns15:importType>com.tmax.test.data.DDD2</ns15:importType>
+    </ns15:wholeImport>
+    <ns15:serviceMethod methodName="service" displayName="service" modifier="public" comments="asdf" overrided="true">
+        <ns11:flowModule>
+            <ns11:entryModule>
+                <ns11:name>service</ns11:name>
+                <ns11:nextEntries>
+                    <ns11:id>0</ns11:id>
+                </ns11:nextEntries>
+            </ns11:entryModule>
+            <ns11:innerModules/>
+            <ns11:xorModules/>
+            <ns11:virtualModules>
+                <ns11:virtualModule nodeId="0">
+                    <ns11:name>버추얼 모듈</ns11:name>
+                    <ns11:comments>dsd</ns11:comments>
+                    <ns11:nextEntries/>
+                    <ns11:code>		 return null;</ns11:code>
+                </ns11:virtualModule>
+            </ns11:virtualModules>
+            <ns11:loopModules/>
+            <ns11:bizMethodCalls/>
+            <ns11:serviceCalls/>
+            <ns11:assignModules/>
+            <ns11:deferredModules/>
+            <ns11:dataObjectCalls/>
+            <ns11:replyCalls/>
+        </ns11:flowModule>
+        <ns15:arguments>
+            <ns11:argument>
+                <ns11:variable kind="DTO" name="arg0">
+                    <ns11:do physicalName="DDD2" resourcePath="com/tmax/test/data"/>
+                </ns11:variable>
+                <ns11:sequence>0</ns11:sequence>
+            </ns11:argument>
+        </ns15:arguments>
+        <ns15:returnType kind="DTO">
+            <ns11:do physicalName="DDD2" resourcePath="com/tmax/test/data"/>
+        </ns15:returnType>
+        <ns15:classInfo classPackageName="com/tmax/test/svc" className="So0705A"/>
+        <ns15:exceptions>
+            <ns15:exception>java.lang.Throwable</ns15:exception>
+        </ns15:exceptions>
+        <ns15:annotations>
+            <ns15:annotation>Override</ns15:annotation>
+        </ns15:annotations>
+    </ns15:serviceMethod>
+    <ns15:interfaces/>
+</ns15:serviceObject>
