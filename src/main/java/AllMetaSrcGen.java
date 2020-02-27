@@ -49,7 +49,7 @@ public class AllMetaSrcGen {
 //		addFileHandler(logger);
 		
 		String sgName =  args[0];
-        
+		logger.info("---------------args[0]-:  " + sgName);
         ArrayList<String> metaPathArray = null;
 		
 		try{
@@ -400,10 +400,12 @@ public class AllMetaSrcGen {
 			throws IOException {
 
 		File dir = new File(dirName);
+		logger.info("2---------------dir-:  " + dir.toString());
 		File[] fileList = dir.listFiles();
 
 		if (fileList.length == 0 || fileList == null) {
 			// end
+			logger.info("3---------------fileList = 0-:  " );
 		}
 
 		for (File file : fileList) {//1. number of module
