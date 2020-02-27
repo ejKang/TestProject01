@@ -48,8 +48,9 @@ public class AllMetaSrcGen {
 		logger.info("--------main() start--------");
 //		addFileHandler(logger);
 		
-		String sgName =  args[0];
-		logger.info("---------------args[0]-:  " + sgName);
+		logger.info("---------------args[0]-:  " + args[0]);
+		String sgName =  args[1];
+		logger.info("---------------args[1]-:  " + sgName);
         ArrayList<String> metaPathArray = null;
 		
 		try{
