@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="EUC-KR" standalone="yes"?>
+<serverConfig xmlns="http://www.tmax.co.kr/proobject/serverConfig">
+
+	<!-- DB Setting -->
+    <configField id="DB_TYPE" value="TIBERO" type="String" xmlns=""/> 
+    <configField id="DB_USER_ID" value="%DBMS_USER%" type="String" xmlns=""/>
+    <configField id="DB_PASSWD" value="%DBMS_PASSWORD%" type="String" xmlns=""/>
+    <configField id="DATA_SOURCE" value="po7_datasource" type="String" xmlns=""/>
+    <configField id="DB_PLUG_NAME" value="com.tmax.proobject.commonbo.util.db.DataSourcePlug" type="String" xmlns=""/>
+
+    <!-- Directory Setting -->
+    <configField id="BASE_HOME" value="PROOBJECT_HOME/resources/srcs" type="String" xmlns=""/>
+    <configField id="PO_APP_HOME" value="PROOBJECT_HOME/resources/deploy_service_group" type="String" xmlns=""/>
+    <configField id="CLASS_HOME" value="PROOBJECT_HOME/resources/classes" type="String" xmlns=""/>
+    <configField id="METAS_HOME" value="PROOBJECT_HOME/resources/metas" type="String" xmlns=""/>
+    <configField id="TEMP_HOME" value="PROOBJECT_HOME/resources" type="String" xmlns=""/>
+    <configField id="ETC_HOME" value="PROOBJECT_HOME/resources/etcs" type="String" xmlns=""/>
+    <configField id="EXTRA_LIBRARY_DIR" value="PROOBJECT_HOME/lib/extra" type="String" xmlns=""/>
+	<configField id="EXTRA_LIBRARY" value="" type="String" xmlns=""/>
+	<configField id="TRANSFER_DOWNLOAD_HOME" value="PROOBJECT_HOME/resources" type="String" xmlns=""/>
+
+    <!-- Config directory setting -->
+    <configField id="PO_CONFIG_PATH" value="PROOBJECT_HOME/system/config" type="String" xmlns=""/>
+
+    <!-- System Setting -->
+    <configField id="JDK_VERSION" value="1.7" type="String" xmlns=""/>
+    <configField id="CLASSPATH_HOME" value="PROOBJECT_HOME/resources/classes:PROOBJECT_HOME/application/common/lib/guava-17.0.jar:PROOBJECT_HOME/application/common/lib/proobject-compiler.jar:PROOBJECT_HOME/application/common/lib/javapoet-1.7.0.jar:PROOBJECT_HOME/application/common/lib/org.eclipse.text_3.5.101.jar:PROOBJECT_HOME/application/common/lib/org.eclipse.core.resources_3.10.1.v20150725-1910.jar:PROOBJECT_HOME/application/common/lib/org.aspectj.ajde_1.8.9.201604061446.jar:PROOBJECT_HOME/application/common/lib/commons-dbutils-1.5.jar" type="String" xmlns=""/> 
+
+
+    <!-- <configField id="DD_HOME" value="/home/po7/proobject7/resources/metas/" type="STRING" xmlns=""/> -->
+
+
+    <!-- Service Setting -->
+	
+	<!-- Common -->
+	<configField id="IS_CHK_RESOURCE_ID" value="TRUE" type="String" xmlns=""/> 
+    <configField id="DELETE_DEPLOYED_RESOURCE" value="TRUE" type="STRING" xmlns=""/>
+
+	<!-- ResourcesDelete/ResourcesUpdate service -->
+	<configField id="IS_DBIO_DEP" value="TRUE" type="String" xmlns=""/>
+	<configField id="IS_DELETE_TEMP_WORK_DIR" value="TRUE" type="String" xmlns=""/>
+	<configField id="UNIQUE_PHYSICAL" value="TRUE" type="String" xmlns=""/>
+
+    <!-- Source Gen Setting -->
+    <configField id="PROMAPPER_SOURCE_GENERATE_ON_SERVER" value="TRUE" type="String" xmlns=""/>
+
+
+
+    <!-- Build Server -->
+    <configField id="BUILD_BASE_HOME" value="PROOBJECT_HOME/resources/srcs/_build" type="String" xmlns=""/>
+    <!-- if BUILD_BASE_HOME does not exist, default directory is ${PROOBJECT_HOME}/resources/srcs/_build .-->    
+    <configField id="BUILD_CLASS_HOME" value="PROOBJECT_HOME/resources/classes/_build" type="String" xmlns=""/>
+    <!-- if BUILD_CLASS_HOME does not exist, default directory is ${PROOBJECT_HOME}resources/classes/_build .-->    
+
+
+
+    <!-- Deploy Server -->
+    <configField id="DEPLOY_BASE_HOME" value="PROOBJECT_HOME/resources/classes/_deploy" type="String" xmlns=""/> 
+    <!-- if DEPLOY_BASE_HOME does not exist, default directory is ${PROOBJECT_HOME}/resources/classes/_deploy .-->    
+
+    <!-- Test Server -->
+    <configField id="TEST_TARGET_SERVER_NAMES" value="Test" type="String" xmlns=""/>
+
+
+</serverConfig>

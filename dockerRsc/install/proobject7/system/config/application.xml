@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns13:application xmlns:ns16="http://www.tmax.co.kr/proobject/taskobject" xmlns:ns17="http://www.tmax.co.kr/proobject/jobobject" xmlns:ns14="http://www.tmax.co.kr/proobject/serviceobject-automatic" xmlns:ns15="http://www.tmax.co.kr/proobject/sourcecode" xmlns:ns18="http://www.example.org/externalObjectConfig" xmlns:ns19="http://www.tmax.co.kr/proobject/contents" xmlns:ns21="http://www.tmax.co.kr/proobject/siteConfig" xmlns:ns9="http://www.tmax.co.kr/proobject/message" xmlns:ns22="http://www.tmax.co.kr/proobject/property" xmlns:ns23="http://www.tmax.co.kr/proobject/serverConfig" xmlns:ns5="http://www.tmax.co.kr/proobject/serviceobject" xmlns:ns12="http://www.tmax.co.kr/proobject/messagebundle" xmlns:ns6="http://www.tmax.co.kr/proobject/bizobject" xmlns:ns13="http://www.tmax.co.kr/proobject/application/runtime" xmlns:ns7="http://www.tmax.co.kr/proobject/dataobjectfactory" xmlns:ns10="http://www.tmax.co.kr/proobject/dto" xmlns:ns20="http://www.tmax.co.kr/proobject/probuilder_config" xmlns:ns8="http://www.tmax.co.kr/proobject/dataobject" xmlns:ns11="http://www.tmax.co.kr/proobject/servicegroup" xmlns:ns2="http://www.tmax.co.kr/proobject/resource" xmlns:ns4="http://www.tmax.co.kr/proobject/flow" xmlns:ns3="http://www.tmax.co.kr/proobject/mapping">
+    <ns13:name>proobject</ns13:name>
+<ns13:web-socket>
+	<ns13:path>monitoring</ns13:path>
+	<ns13:class-name>com.tmax.proobject.managerops.monitoring.event.ActiveMonitoringWebSocket</ns13:class-name>
+	<!-- ns13:service>proobject.proobject-managerops.ActiveMonitoringWebSocketRead</ns13:service -->
+	<ns13:service>proobject.proobject-managerops.ActiveStatisticsMonitoringWebSocketRead</ns13:service>
+</ns13:web-socket>
+</ns13:application>

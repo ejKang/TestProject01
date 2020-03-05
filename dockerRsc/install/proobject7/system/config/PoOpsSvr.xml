@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="EUC-KR" standalone="yes"?>
+<serverConfig xmlns="http://www.tmax.co.kr/proobject/serverConfig">
+	
+<!--############################################################################
+    # DB Setting                                                               #
+    ############################################################################-->	
+	
+    <configField id="DB_TYPE" value="TIBERO" type="String" xmlns=""/> 
+    <configField id="DB_USER_ID" value="%DBMS_USER%" type="String" xmlns=""/>
+    <configField id="DB_PASSWD" value="%DBMS_PASSWORD%" type="String" xmlns=""/>
+    <configField id="DATA_SOURCE" value="po7_datasource" type="String" xmlns=""/>
+    <configField id="DB_PLUG_NAME" value="com.tmax.proobject.master.util.DataSourcePlug" type="String" xmlns=""/>
+
+<!--############################################################################
+    #  Deploy Server                                                           #
+    ############################################################################-->	
+	
+    <configField id="DEPLOY_BASE_HOME" value="PROOBJECT_HOME/resources/classes/_deploy" type="String" xmlns=""/> 
+    <!-- if DEPLOY_BASE_HOME does not exist, default directory is ${PROOBJECT_HOME}/resources/classes/_deploy .-->       
+
+<!--############################################################################
+    # Config Directory Setting                                                 #
+    ############################################################################-->	
+	
+    <configField id="PO_CONFIG_PATH" value="PROOBJECT_HOME/system/config" type="String" xmlns=""/>
+    <configField id="CLASSPATH_HOME" value="PROOBJECT_HOME/system/devops/lib/proobject-opsutil-7.0.0.0.jar" type="String" xmlns=""/>
+    <configField id="USE_SCHEDULE_REGIST_FROM_DB" value="TRUE" type="String" xmlns=""/>
+
+    <configField id="FILE_TRANSFER_ONLY_FOR_HOTDEPLOY" value="FALSE" type="String" xmlns=""/>
+</serverConfig>

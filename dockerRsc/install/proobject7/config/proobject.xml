@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE xml>
+<ProObjectConfig>
+    <single-application>false</single-application>
+    <file-port>%FILE_PORT%</file-port>
+    <proobject-port>%PROOBJECT_PORT%</proobject-port>
+    <server-name>%SERVERNAME%</server-name>
+    <engine-config>
+        <listener-name>po7-http</listener-name>
+        <host-name>%SERVERNAME%</host-name>
+        <proObject-datasource>po7_datasource</proObject-datasource>
+        <initial-context-factory>jeus.jndi.JEUSContextFactory</initial-context-factory>
+        <provider-url>localhost:%BASE_PORT%</provider-url>
+    </engine-config>
+    
+    <system-log-info>
+        <module-name>ProObject</module-name>
+        <log-level>DEBUG</log-level>
+        <file-name>ProObject.log</file-name>
+    <use-console-out>true</use-console-out>
+    </system-log-info>
+    <system-log-info>
+        <module-name>EventManager</module-name>
+        <log-level>FINER</log-level>
+        <file-name>EventManager.log</file-name>
+    <use-console-out>true</use-console-out>
+    </system-log-info>
+    <system-log-info>
+        <module-name>ServiceManager</module-name>
+        <log-level>FINER</log-level>
+        <file-name>ServiceManager.log</file-name>
+    <use-console-out>true</use-console-out>
+    </system-log-info>
+    <system-log-info>
+        <module-name>TestModule</module-name>
+        <log-level>FINER</log-level>
+        <file-name>TestModule.log</file-name>
+    <use-console-out>true</use-console-out>
+    </system-log-info>
+</ProObjectConfig>

@@ -1,0 +1,605 @@
+// ---------- For Harvest's Dev Build Script ----------
+// ---------- Setting Section ----------
+
+// Plugins
+apply plugin : 'java'
+
+// Script Version
+version = 1.0
+
+// Java version compatibility to use when compiling Java source
+sourceCompatibility = 1.8
+
+// Java version to generate classes for
+targetCompatibility = 1.8
+
+
+// variables
+ext {
+	
+	// .java sources directory
+	javaDir = "${sgName}/.gen_src"
+	
+	appJavaDir = "${appName}/.gen_src"
+	
+	//
+	ajDir = "${poHome}/system/devops/aj"
+	
+	// changed&deleted .java sources temp directory
+	tmpDtoDir = "${sgName}/dto_src"
+	tmpRscDir = "${sgName}/other_src"
+	
+	tmpAppDtoDir = "${appName}/dto_src"
+	tmpAppRscDir = "${appName}/other_src"
+	
+	//
+	tmpDtoClass = "${sgName}/tmp_dto_class"
+	tmpRscClass = "${sgName}/tmp_class"
+	
+	tmpAppDtoClass = "${appName}/tmp_dto_class"
+	tmpAppRscClass = "${appName}/tmp_class"
+	
+	// compiled .class classes directory
+	dtoDestDir = "${poHome}/resources/classes/_build/${projectName}/${appName}/${sgName}-dto"
+	rscDestDir = "${poHome}/resources/classes/_build/${projectName}/${appName}/${sgName}"
+	
+	appDtoDestDir = "${poHome}/resources/classes/_build/${projectName}/${appName}/application/${appName}-dto"
+	appRscDestDir = "${poHome}/resources/classes/_build/${projectName}/${appName}/application/${appName}"
+	
+	allDestDir = "${poHome}/resources/classes/_build/_jar"
+	
+	//
+	buildDestDir = "${poHome}/resources/classes/_build/${projectName}"
+	
+	// class Directory for main java 
+	classDir = "${poHome}/resources/classes/${appName}/${sgName}"
+	
+	// ProObject7 classpath jar librarys
+	compileWasClasspath = "${jeusHome}/lib/system"
+	compileLibClasspath = "${poHome}/system/devops/lib"
+	compile3rdClasspath = "${poHome}/system/devops/jenkins/script/3rdPartyLib"
+	compileUserClasspath = "${sgName}/user_lib"
+	compileAppUserClasspath = "${appName}/user_lib"
+
+	//
+	jarDir = "${poHome}/resources/classes/_build/_jar/${projectName}"	
+	appJarDir = "${poHome}/resources/classes/_build/_jar/${projectName}/application"
+	
+	sgConfigDir = "${sgName}/META-INF"
+	appConfigDir = "${appName}/META-INF"
+	
+}
+
+// Configurations
+configurations {
+
+    ajc
+    aspects
+    ajInpath
+	compile
+
+}
+
+// SourceSets
+sourceSets {
+
+	// main sourceset
+	main {
+		java {
+			srcDir "${javaDir}"
+		}
+	
+		output.classesDir = "${classDir}"
+    }
+	
+	// dto sourceset
+	dto {
+		java {
+			srcDir "${tmpDtoDir}"
+		}
+		
+		output.classesDir = "${tmpDtoClass}"
+	}
+	
+	appDto {
+		java {
+			srcDir "${tmpAppDtoDir}"
+		}
+		
+		output.classesDir = "${tmpAppDtoClass}"
+	}
+	
+	// resources sourceset
+	rsc {
+		java {
+			srcDir "${tmpRscDir}"
+		}
+		
+		output.classesDir = "${tmpRscClass}"
+	}
+	
+	appRsc {
+		java {
+			srcDir "${tmpAppRscDir}"
+		}
+		
+		output.classesDir = "${tmpAppRscClass}"
+	}
+	
+	aj {
+		java {
+			srcDir "${ajDir}"
+		}
+	}
+	
+}
+
+// Repositories where classpath librarys
+repositories {
+
+	flatDir {
+		dirs "${compileLibClasspath}"
+	}
+	
+	flatDir {
+		dirs "${compile3rdClasspath}"
+	}
+	
+	flatDir {
+		dirs "${compileUserClasspath}"
+	}
+	
+	flatDir {
+		dirs "${compileAppUserClasspath}"
+	}
+	
+	flatDir {
+		dirs "${compileWasClasspath}"
+	}
+	
+}
+
+// Dependencies for compiletime
+dependencies {
+
+    compile files("${patchFilePath}")
+	compile files("${runtimeLibPath}")
+	compile fileTree(dir: "${compileWasClasspath}", include: '**/*.jar')
+	compile fileTree(dir: "${compileLibClasspath}", include: '*.jar')
+    compile fileTree(dir: "${compile3rdClasspath}", include: '*.jar')
+    compile fileTree(dir: "${compileUserClasspath}", include: '*.jar')
+	compile fileTree(dir: "${compileAppUserClasspath}", include: '*.jar')
+	compile files("${tmpAppDtoClass}")
+    compile files("${tmpAppRscClass}")
+    compile files("${appDtoDestDir}")
+    compile files("${appRscDestDir}")	
+	compile files("${tmpDtoClass}")
+    compile files("${tmpRscClass}")
+    compile files("${dtoDestDir}")
+    compile files("${rscDestDir}")
+	compile fileTree(dir: "${allDestDir}", include: '**/*.jar')
+    compile 'org.aspectj:aspectjrt:1.8.9'
+    ajc 'org.aspectj:aspectjtools:1.8.9'
+
+}
+
+// ---------- Method Section ----------
+
+//
+def deleteEmptyDirs = {
+	
+	def emptyDir1 = []
+	def emptyDir2 = []
+	def emptyDir3 = []
+	def emptyDir4 = []
+
+    project.fileTree(dir: dtoDestDir).visit { 
+        def File f = it.file
+
+        if (f.isDirectory() ) {
+            def children = project.fileTree(f).filter { it.isFile() }.files
+            if (children.size() == 0) {
+                emptyDir1 << f
+            }
+        }
+    }
+
+    // reverse so that we do the deepest folders first
+    emptyDir1.reverseEach { it.delete() }
+	
+	project.fileTree(dir: rscDestDir).visit { 
+        def File f = it.file
+
+        if (f.isDirectory() ) {
+            def children = project.fileTree(f).filter { it.isFile() }.files
+            if (children.size() == 0) {
+                emptyDir2 << f
+            }
+        }
+    }
+
+    // reverse so that we do the deepest folders first
+    emptyDir2.reverseEach { it.delete() }
+	
+	project.fileTree(dir: appDtoDestDir).visit { 
+        def File f = it.file
+
+        if (f.isDirectory() ) {
+            def children = project.fileTree(f).filter { it.isFile() }.files
+            if (children.size() == 0) {
+                emptyDir3 << f
+            }
+        }
+    }
+
+    // reverse so that we do the deepest folders first
+    emptyDir3.reverseEach { it.delete() }
+	
+	project.fileTree(dir: appRscDestDir).visit { 
+        def File f = it.file
+
+        if (f.isDirectory() ) {
+            def children = project.fileTree(f).filter { it.isFile() }.files
+            if (children.size() == 0) {
+                emptyDir4 << f
+            }
+        }
+    }
+
+    // reverse so that we do the deepest folders first
+    emptyDir4.reverseEach { it.delete() }
+	
+}
+
+// ---------- Task Section ----------
+
+task makeEmptyDir() {
+
+	println 'makeEmptyDir start!!!'
+	
+	delete "${tmpDtoClass}"
+	delete "${tmpRscClass}"
+	
+	delete "${tmpAppDtoClass}"
+	delete "${tmpAppRscClass}"
+	
+	def tdd = new File("${tmpDtoDir}")
+	tdd.mkdirs()
+	def trd = new File("${tmpRscDir}")
+	trd.mkdirs()
+	def tdc = new File("${tmpDtoClass}")
+	tdc.mkdirs()
+	def trc = new File("${tmpRscClass}")
+	trc.mkdirs()
+	
+	def atdd = new File("${tmpAppDtoDir}")
+	atdd.mkdirs()
+	def atrd = new File("${tmpAppRscDir}")
+	atrd.mkdirs()
+	def atdc = new File("${tmpAppDtoClass}")
+	atdc.mkdirs()
+	def atrc = new File("${tmpAppRscClass}")
+	atrc.mkdirs()
+	
+	println 'makeEmptyDir end!!!'
+	
+}
+
+task appDtoBuild() {
+
+	println 'appDtoBuild start!!!'
+	
+doLast {
+    ant.taskdef(resource: 'org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties',
+                classpath: configurations.ajc.asPath)
+
+    ant.iajc(
+            maxmem: '1024m', fork: 'true', Xlint: 'ignore',
+			
+			// The directory in which to place the generated class files
+            destDir: sourceSets.appDto.output.classesDir,
+			
+			// Similar to classpath, aspectpath contains read-only, binary aspect libraries that are woven into sources but not included in the output.
+            aspectPath: configurations.aspects.asPath,
+			
+			// Read .class files for bytecode weaving from directories or zip files (like classpath).
+            inpath: configurations.ajInpath.asPath,
+			
+			// The classpath used by the sources being compiled. When compiling aspects, include the same version of the aspectjrt.jar.
+            classpath: configurations.compile.asPath,							
+            
+			source: sourceCompatibility,
+            target: targetCompatibility
+    ){
+	// Directories containing source files (ending with .java or .aj) to compile.
+	sourceroots { 
+		sourceSets.appDto.java.srcDirs.each {
+			if (it.exists()) {
+				pathelement(location:it.absolutePath)
+			}
+		}
+	  }
+	}
+}
+	println 'appDtoBuild end!!!'
+}
+
+// 
+task appDtoClassCopy(type: Copy) {
+
+	println 'appDtoClassCopy start!!!'
+	
+	from("${tmpAppDtoClass}")
+	into "${appDtoDestDir}"
+
+	println 'appDtoClassCopy end!!!'
+	
+}
+
+task appSrcBuild() {
+
+	println 'appSrcBuild start!!!'
+	
+doLast {
+    ant.taskdef(resource: 'org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties',
+                classpath: configurations.ajc.asPath)
+
+    ant.iajc(
+            maxmem: '1024m', fork: 'true', Xlint: 'ignore',
+			
+			// The directory in which to place the generated class files
+            destDir: sourceSets.appRsc.output.classesDir,
+			
+			// Similar to classpath, aspectpath contains read-only, binary aspect libraries that are woven into sources but not included in the output.
+            aspectPath: configurations.aspects.asPath,
+			
+			// Read .class files for bytecode weaving from directories or zip files (like classpath).
+            inpath: configurations.ajInpath.asPath,
+			
+			// The classpath used by the sources being compiled. When compiling aspects, include the same version of the aspectjrt.jar.
+            classpath: configurations.compile.asPath,
+			           
+			source: sourceCompatibility,
+            target: targetCompatibility
+    ){
+	// Directories containing source files (ending with .java or .aj) to compile.
+	sourceroots { 
+		sourceSets.appRsc.java.srcDirs.each {
+			if (it.exists()) {
+				pathelement(location:it.absolutePath)
+			}
+		}
+
+		sourceSets.aj.java.srcDirs.each {
+			if (it.exists()) {
+				pathelement(location:it.absolutePath)
+			}
+		}		
+	  }
+	}
+}		
+	println 'appSrcBuild end!!!'
+}
+
+// 
+task appSrcClassCopy(type: Copy) {
+
+	println 'appSrcClassCopy start!!!'
+		
+	from("${tmpAppRscClass}")
+	into "${appRscDestDir}"
+	
+	println 'appSrcClassCopy end!!!'
+	
+}
+
+// Task compile dto java file to class file using aspectj compiler(Ant iajc task)
+// And delete dto classfile
+task dtoBuild() {
+
+	println 'dtoBuild start!!!'
+	
+doLast {
+    ant.taskdef(resource: 'org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties',
+                classpath: configurations.ajc.asPath)
+
+    ant.iajc(
+            maxmem: '1024m', fork: 'true', Xlint: 'ignore',
+			
+			// The directory in which to place the generated class files
+            destDir: sourceSets.dto.output.classesDir,
+			
+			// Similar to classpath, aspectpath contains read-only, binary aspect libraries that are woven into sources but not included in the output.
+            aspectPath: configurations.aspects.asPath,
+			
+			// Read .class files for bytecode weaving from directories or zip files (like classpath).
+            inpath: configurations.ajInpath.asPath,
+			
+			// The classpath used by the sources being compiled. When compiling aspects, include the same version of the aspectjrt.jar.
+            classpath: configurations.compile.asPath,
+							           
+			source: sourceCompatibility,
+            target: targetCompatibility
+    ){
+	// Directories containing source files (ending with .java or .aj) to compile.
+	sourceroots { 
+		sourceSets.dto.java.srcDirs.each {
+			if (it.exists()) {
+				pathelement(location:it.absolutePath)
+			}
+		}
+	  }
+	}
+}
+	println 'dtoBuild end!!!'
+}
+
+// 
+task dtoClassCopy(type: Copy) {
+
+	println 'dtoClassCopy start!!!'
+	
+	from("${tmpDtoClass}")
+	into "${dtoDestDir}"
+		
+	println 'dtoClassCopy end!!!'
+	
+}
+
+// Task compile rsc java file to class file using aspectj compiler(Ant iajc task)
+// And delete rsc classfile
+task srcBuild() {
+
+	println 'rscBuild start!!!'
+	
+doLast {
+    ant.taskdef(resource: 'org/aspectj/tools/ant/taskdefs/aspectjTaskdefs.properties',
+                classpath: configurations.ajc.asPath)
+
+    ant.iajc(
+            maxmem: '1024m', fork: 'true', Xlint: 'ignore',
+			
+			// The directory in which to place the generated class files
+            destDir: sourceSets.rsc.output.classesDir,
+			
+			// Similar to classpath, aspectpath contains read-only, binary aspect libraries that are woven into sources but not included in the output.
+            aspectPath: configurations.aspects.asPath,
+			
+			// Read .class files for bytecode weaving from directories or zip files (like classpath).
+            inpath: configurations.ajInpath.asPath,
+			
+			// The classpath used by the sources being compiled. When compiling aspects, include the same version of the aspectjrt.jar.
+            classpath: configurations.compile.asPath,
+			            
+			source: sourceCompatibility,
+            target: targetCompatibility
+    ){
+	// Directories containing source files (ending with .java or .aj) to compile.
+	sourceroots { 
+		sourceSets.rsc.java.srcDirs.each {
+			if (it.exists()) {
+				pathelement(location:it.absolutePath)
+			}
+		}
+
+		sourceSets.aj.java.srcDirs.each {
+			if (it.exists()) {
+				pathelement(location:it.absolutePath)
+			}
+		}		
+	  }
+	}
+}		
+	println 'rscBuild end!!!'
+}
+
+// 
+task srcClassCopy(type: Copy) {
+
+	println 'srcClassCopy start!!!'
+		
+	from("${tmpRscClass}")
+	into "${rscDestDir}"
+	
+	println 'srcClassCopy end!!!'
+	
+}
+
+//
+task appDtoJar(type: Jar) {
+
+	println 'appDtoJar start!!!'
+	
+	from "${appDtoDestDir}"
+	destinationDir = file("${appJarDir}/${buildNumber}/${appName}")
+	baseName = "${appName}-dto"
+	version = "${buildNumber}"
+	
+	println 'appDtoJar end!!!'
+	
+}
+
+//
+task appSrcJar(type: Jar) {
+
+	println 'appSrcJar start!!!'
+	
+	from "${appRscDestDir}"
+	destinationDir = file("${appJarDir}/${buildNumber}/${appName}")
+	baseName = "${appName}"
+	version = "${buildNumber}"
+	
+	println 'appSrcJar end!!!'
+	
+}
+
+//
+task dtoJar(type: Jar) {
+
+	println 'dtoJar start!!!'
+	
+	from "${dtoDestDir}"
+	destinationDir = file("${jarDir}/${buildNumber}/${appName}/servicegroup/${sgName}")
+	baseName = "${sgName}-dto"
+	version = "${buildNumber}"
+	
+	println 'dtoJar end!!!'
+	
+}
+
+//
+task srcJar(type: Jar) {
+
+	println 'srcJar start!!!'
+	
+	from "${rscDestDir}"
+	destinationDir = file("${jarDir}/${buildNumber}/${appName}/servicegroup/${sgName}")
+	baseName = "${sgName}"
+	version = "${buildNumber}"
+	
+	println 'srcJar end!!!'
+	
+}
+
+task appConfigCopy(type: Copy) {
+
+	println 'appConfigCopy start!!!'
+	
+	from("${appConfigDir}")
+	into "${appJarDir}/${buildNumber}/${appName}/config"
+	
+	println 'appConfigCopy end!!!'
+	
+}
+
+task sgConfigCopy(type: Copy) {
+
+	println 'sgConfigCopy start!!!'
+	
+	from("${sgConfigDir}")
+	into "${jarDir}/${buildNumber}/${appName}/servicegroup/${sgName}/config"
+	
+	println 'sgConfigCopy end!!!'
+	
+}
+
+//
+task cleanDir(type: Delete) {
+
+	println 'cleanDir start!!!'
+	
+    delete "${tmpDtoDir}"
+	delete "${tmpRscDir}"
+	delete "${tmpDtoClass}"
+	delete "${tmpRscClass}"
+	
+	delete "${tmpAppDtoDir}"
+	delete "${tmpAppRscDir}"
+	delete "${tmpAppDtoClass}"
+	delete "${tmpAppRscClass}"
+		
+	deleteEmptyDirs()
+	
+	println 'cleanDir end!!!'
+	
+}

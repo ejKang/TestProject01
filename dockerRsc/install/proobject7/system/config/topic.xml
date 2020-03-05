@@ -1,0 +1,16 @@
+<topic-config>
+       <jndi-config>
+           <name>SmConnectionFactory</name>
+           <connection-factory>SmConnectionFactory</connection-factory>
+		   <remote-url>%PASSMASTER_IP%:%PASSMASTER_PORT%</remote-url>
+
+       </jndi-config>
+       <topic selector="publisherType in ('JEUSMASTER')">
+              <name>SMEventTopic</name>
+              <jndi-name>SMEventTopic</jndi-name>
+              <subscriber>
+                      <name>PMSubscriber</name>
+                      <service>proobject.proobject-master.PMSubscriber</service>
+              </subscriber>
+      </topic>
+</topic-config>

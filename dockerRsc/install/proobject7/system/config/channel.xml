@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE xml>
+<channel-config>
+	<channel-accept-handler>
+        	<name>StandAloneMonitoringChannelAcceptor</name>
+        	<class-name>com.tmax.proobject.monitoring.master.channel.StandAloneMonitoringChannelAcceptor</class-name>
+	</channel-accept-handler>
+	<server-channel>
+	    <port>6776</port>
+   	    <accept-handler>StandAloneMonitoringChannelAcceptor</accept-handler>
+	</server-channel>
+	<channel-event-handler>
+    		<name>StandAloneMonitoringChannelHandler</name>
+    		<class-name>com.tmax.proobject.monitoring.master.channel.StandAloneMonitoringChannelHandler</class-name>
+	</channel-event-handler>
+ </channel-config>
+
