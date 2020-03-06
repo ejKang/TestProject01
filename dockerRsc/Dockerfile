@@ -1,6 +1,4 @@
-FROM local_jeus8:b162106
-
-MAINTAINER SQA3 <jachun_gu@tmax.co.kr>
+FROM 192.168.15.110:5000/local_jeus8:b162106
 
 ENV PROOBJECT_HOME=/home/tmax/proobject7
 COPY domain.xml /home/tmax/jeus8/domains/domain1/config/domain.xml

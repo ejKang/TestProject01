@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello1
+  labels:
+    appname: hello1
+spec:
+  selector:
+    matchLabels:
+      appname: hello1
+  replicas: 2
+  template:
+    metadata:
+      name: hello1
+      labels:
+        appname: hello1
+    spec:
+      containers:
+        - name: hello1
+          image: ejkang/hello1
+        env:
+        - name: PUBLIC_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: SERVER_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: DBMS_IP
+          value: "10.98.0.7"
+        - name: DBMS_PORT
+          value: "8629"
+        - name: DBMS_NAME
+          value: "tibero"
+        - name: DBMS_USER
+          value: "po_ops"
+        - name: DBMS_PASSWORD
+          value: "po_ops"
+        - name: FILE_PORT
+          value: "4445"
+        - name: PROOBJECT_PORT
+          value: "6667"
+        - name: HTTP_PORT
+          value: "8085"
+        - name: BASE_PORT
+          value: "9736"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
